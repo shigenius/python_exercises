@@ -27,7 +27,7 @@ def mean(xi):
 
 def deviation(x, xi):
     # input : 数値xと，そのxが属する数値集合xi(リスト)
-    # output : xとxiの偏差
+    # output : xとxiの平均の偏差
     pass
 
 def variance(xi):
