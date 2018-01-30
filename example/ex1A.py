@@ -1,3 +1,5 @@
+# aim :リストオブジェクトの扱いといった基本的なpython文法の習得，文字列操作，アルゴリズムの想像，テスト
+
 def calcFrequencyOfText(text):
 
     #replace this for solution
