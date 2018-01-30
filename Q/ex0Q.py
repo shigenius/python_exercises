@@ -22,7 +22,6 @@ def square(x):
 def mean(xi):
     # input : 数値集合xi(リスト)
     # output : xiの平均
-
     pass
 
 def deviation(x, xi):
@@ -45,7 +44,7 @@ if __name__ == '__main__':
 
     data = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
-    print(square(sqrt(2)))
+    print(square(sqrt(data[2])))
     print(mean(data))
     print(variance(data))
     print(standard_dev(data))
