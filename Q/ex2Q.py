@@ -7,6 +7,8 @@
 # 自分で調べさせるところとのバランス
 # 変数のスコープ，保守性などについて
 
+# ちょっと詳細に書きすぎてるかも
+
 class SampleClass:
     def __init__(self, v=0): # コンストラクタ(イニシャライザ) : インスタンスが作られる際に呼ばれる関数．
         self.v = v 
@@ -20,8 +22,7 @@ class SampleClass:
     def getVariable(self):
         return self.v
 
-
-if __name__ == '__main__':
+def main():
     instanceA = SampleClass() # インスタンス化 :
     # "SampleClass"型のオブジェクトが生成される(メモリ領域が確保される)．
     # 同時に生成されたインスタンスは左辺値"instanceA"に紐付けられる．
@@ -36,3 +37,8 @@ if __name__ == '__main__':
 
 
     print(instanceA) # オブジェクトの型が出力される
+
+
+# pythonインタプリタからこのファイルを実行した時に一番初めに以下が実行される．
+if __name__ == '__main__':
+    main()
