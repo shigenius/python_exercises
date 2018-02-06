@@ -1,13 +1,15 @@
-# classについて
-# 定義の仕方, メンバとコンストラクタ(デストラクタ)，インスタンス，インスタンス化
-# binding
-# 継承 ポリモーフィズム?
+"""
+classの概念の理解，また使い方について学びましょう．
+以下に定義してあるclass SampleClass と関数main()はサンプルコードです．コメントを入れていますので参考にしてください．
 
-# 定義の仕方など最初は理解が難しいのでかんたんなサンプルを与える．
-# 自分で調べさせるところとのバランス
-# 変数のスコープ，保守性などについて
+問題:
+* 名簿を表現するclassを作成しましょう．
+* 名簿クラスの仕様:
+  * 出席番号と生徒の名前をペアにした辞書型配列をメンバ変数として持つ．(辞書型以外でもok)
+  * 名簿に生徒を追加，削除，指定した出席版号の生徒の名前を出力する機能をそれぞれ持つ．
 
-# ちょっと詳細に書きすぎてるかも
+* 作成したクラスは関数mainB()でインスタンス化して，各機能がきちんと動くかどうか確認しましょう．
+"""
 
 class SampleClass:
     def __init__(self, v=0): # コンストラクタ(イニシャライザ) : インスタンスが作られる際に呼ばれる関数．
@@ -23,22 +25,38 @@ class SampleClass:
         return self.v
 
 def main():
-    instanceA = SampleClass() # インスタンス化 :
+    a = SampleClass() # インスタンス化 :
     # "SampleClass"型のオブジェクトが生成される(メモリ領域が確保される)．
-    # 同時に生成されたインスタンスは左辺値"instanceA"に紐付けられる．
-    # "instanceA"はポインタである．"instanceA"は紐付けられているインスタンスのメモリ領域を参照しているに過ぎないが，pythonにおいてはGCが言語仕様として設計されているため，感覚的には"instanceA"はポインタではなく実インスタンスとして使用することができる．(たぶん)
-    instanceA.setVariable(1) # メンバ関数の呼び出し
-    print(instanceA.getVariable())
+    # 同時に生成されたインスタンスは左辺値"a"に紐付けられる．
+    # "a"はポインタである．"a"は紐付けられているインスタンスのメモリ領域を参照しているに過ぎないが，pythonにおいてはGCが言語仕様として設計されているため，感覚的には"a"はポインタではなく実インスタンスとして使用することができる．(たぶん)
+    a.setVariable(1) # メンバ関数の呼び出し
+    print("a.getVariable():", a.getVariable())
 
 
-    instanceB = SampleClass(5) # Aとは別のインスタンスをつくってみよう
-    instanceB.setVariable(2)
-    print(instanceB.getVariable()) # AとBでそれぞれ固有のメンバ変数(v)が保持されている．
+    b = SampleClass(5) # aとは別のインスタンスをつくってみよう
+    b.setVariable(2)
+    print("b.getVariable():", b.getVariable()) # aとbでそれぞれ固有のメンバ変数(v)が保持されている．
 
+    c = a # cはaと同じオブジェクトを参照する．
 
-    print(instanceA) # オブジェクトの型が出力される
+    print("c.getVariable():", c.getVariable())
+    c.setVariable(3)
+    print("c.getVariable():", c.getVariable())
+    print("a.getVariable():", a.getVariable())
+
+    print("a:", a) # オブジェクトの型が出力される
+    print("c:", c) # aと同じアドレスを指している
+
+    del c
+    del a
+    # オブジェクトを参照するポインタがすべて削除された時(明示的に削除を宣言(pythonであればdel構文)しなくても変数のスコープなどによって削除される)，参照先のオブジェクトのメモリ領域も解放される．
+
+def mainB():
+    # write your solution here
+    pass # ここは削除してもらって構いません
 
 
 # pythonインタプリタからこのファイルを実行した時に一番初めに以下が実行される．
 if __name__ == '__main__':
     main()
+    mainB()
