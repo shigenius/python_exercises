@@ -8,7 +8,7 @@ def calcFrequencyOfText(text):
 
     #chara_dict = {chara:lowerd_text.count(chara) for chara in lowerd_text if chara.isalpha()}
     # {c: text.count(c) for c in set(text)}
-
+    # {c: sum(1 for x in lowerd_text if x == c) for c in set(lowerd_text)} # 頻度
 
     # another solution
     chara_dict = {}
