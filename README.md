@@ -1,5 +1,5 @@
 # python_exercises
-for b3
+ゼミのメンバー向けのpythonの学習用ソース
 
 * 実行環境:
   * python3.5
